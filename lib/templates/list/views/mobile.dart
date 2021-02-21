@@ -84,14 +84,17 @@ class MobileView extends StatelessWidget {
                     index: index,
                     child: GestureDetector(
                       onTap: () {
-                        (navigator ?? Navigator.of(context))
-                            .push(MaterialPageRoute(builder: (context) {
-                          final _details = detailBuilder(context, index, false);
-                          return new DetailView(
-                              detailScaffoldKey: detailScaffoldKey,
-                              itemCount: childDelagate.estimatedChildCount,
-                              details: _details);
-                        }));
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            final _details = detailBuilder(context, index, false);
+                            return new DetailView(
+                                detailScaffoldKey: detailScaffoldKey,
+                                itemCount: childDelagate.estimatedChildCount,
+                                details: _details
+                            );
+                          },
+                        );
                       },
                       child: new Container(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
