@@ -121,24 +121,15 @@ class DetailView extends StatelessWidget {
     @required this.itemCount,
     @required DetailsScreen details,
     @required this.detailScaffoldKey,
-    @required this.tablet,
   })  : _details = details,
         super(key: key);
 
   final int itemCount;
   final DetailsScreen _details;
   final Key detailScaffoldKey;
-  final bool tablet;
 
   @override
   Widget build(BuildContext context) {
-    if(tablet){
-      return Scaffold(
-        key: detailScaffoldKey,
-        appBar: _details?.appBar,
-        body: _details.body,
-      );
-    }
     return Dialog(
       key: detailScaffoldKey,
       child: _details.body,
