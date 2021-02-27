@@ -214,7 +214,7 @@ class _TabletViewState extends State<TabletView> {
                                   });
                                 },
                                 child: new Container(
-                                  color: _index == index
+                                  color: _index != index
                                       ? Theme.of(context)
                                           .chipTheme
                                           .disabledColor
